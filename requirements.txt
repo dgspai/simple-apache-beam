@@ -1,0 +1,2 @@
+apache-beam[gcp]==2.47.0
+pydantic==1.10.8

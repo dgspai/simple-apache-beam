@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  pubsub-emulator:
+    image: thekevjames/gcloud-pubsub-emulator:latest
+    ports:
+      - '8681:8681'
+    environment:
+      - PUBSUB_PROJECT1=${PUBSUB_PROJECT},${PUBSUB_TOPIC}:${PUBSUB_SUBSCRIPTION}
