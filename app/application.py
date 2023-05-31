@@ -53,7 +53,8 @@ if __name__ == "__main__":
                 | beam.Map(lambda element: (element["model_id"], element))  # Mapear o id como chave
                 | beam.WindowInto(FixedWindows(0.5))  # Definir janela de n segundos
                 | beam.GroupIntoBatches(50)  # Agrupar elementos pelo id em no max n
-                | beam.ParDo(process_batch)
+                | beam.Map(process_batch)
+                | beam.FlatMap(lambda result: result)
         )
 
         # # Imprimir os elementos transformados
